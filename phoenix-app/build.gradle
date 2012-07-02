@@ -1,0 +1,19 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-core', version: ext.springVersion
+    compile(group: 'org.springframework', name: 'spring-context', version: ext.springVersion) {
+        exclude module: 'commons-logging'
+    }
+    compile group: 'org.springframework', name: 'spring-context-support', version: ext.springVersion
+    compile group: 'org.springframework', name: 'spring-web', version: ext.springVersion
+    compile group: 'org.springframework', name: 'spring-webmvc', version: ext.springVersion
+    compile group: 'org.springframework', name: 'spring-expression', version: ext.springVersion
+
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: ext.springSecurityVersion
+    compile group: 'org.springframework.security', name: 'spring-security-web', version: ext.springSecurityVersion
+    compile group: 'org.springframework.security', name: 'spring-security-config', version: ext.springSecurityVersion
+
+    testCompile group: 'org.springframework', name: 'spring-test', version: ext.springVersion
+}

@@ -1,0 +1,29 @@
+/**
+ * Root build script
+ */
+group = 'com.phoenix'
+version = '0.1-SNAPSHOT'
+
+subprojects {
+	apply plugin: 'java'
+    apply plugin: 'eclipse'
+	repositories {
+		mavenCentral()
+        maven {
+            url "http://www.springsource.com/repository"
+        }
+	}
+    version: project.version
+	ext.springVersion = '3.1.0.RELEASE'
+	ext.springSecurityVersion = '3.1.0.RELEASE'
+	ext.sourceCompatability = '1.6'
+    ext.slf4jVersion  = '1.6.6'
+    ext.logbackVersion = '1.0.6'
+
+    dependencies {
+        compile group: 'org.slf4j', name: 'slf4j-api', version: ext.slf4jVersion
+        // spring bridge
+        runtime group: 'org.slf4j', name: 'jcl-over-slf4j', version: ext.slf4jVersion
+        runtime group: 'ch.qos.logback', name: 'logback-classic', version: ext.logbackVersion
+    }
+}
